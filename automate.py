@@ -44,12 +44,8 @@ class ApplyLinkedin:
         job_title.send_keys(self.keyword)
         time.sleep(3)
 
-        job_location = self.driver.find_element(By.CLASS_NAME, "jobs-search-box__text-input")
-        job_location.clear()
-        job_location.send_keys(self.location)
-        time.sleep(20)
-
-        job_location.send_keys(Keys.RETURN)
+        job_title.send_keys(Keys.RETURN)
+        time.sleep(10)
 
 
 if __name__ == "__main__":
