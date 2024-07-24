@@ -25,14 +25,31 @@ class ApplyLinkedin:
         password = self.driver.find_element(By.ID, "password")
         password.clear()
         password.send_keys(self.password)
-        time.sleep(10)
+        time.sleep(20)
 
         # Sign in button
         button = self.driver.find_element(By.CLASS_NAME, "btn__primary--large")
         button.send_keys(Keys.RETURN)
-        time.sleep(10)
+        time.sleep(20)
 
 
+    # Job Search
+    def job_search(self):
+        job_section = self.driver.find_element(By.LINK_TEXT, "Jobs")
+        job_section.click()
+        time.sleep(20)
+
+        job_title = self.driver.find_element(By.CLASS_NAME, "jobs-search-box__text-input")
+        job_title.clear()
+        job_title.send_keys(self.keyword)
+        time.sleep(3)
+
+        job_location = self.driver.find_element(By.CLASS_NAME, "jobs-search-box__text-input")
+        job_location.clear()
+        job_location.send_keys(self.location)
+        time.sleep(20)
+
+        job_location.send_keys(Keys.RETURN)
 
 
 if __name__ == "__main__":
@@ -41,3 +58,4 @@ if __name__ == "__main__":
 
     bot = ApplyLinkedin(data)
     bot.login_linkedin()
+    bot.job_search()
